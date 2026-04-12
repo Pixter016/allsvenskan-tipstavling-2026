@@ -10,7 +10,12 @@ FILNAMN = "Allsvenskan_Tipstävling_2026.xlsx"
 
 def hämta_och_uppdatera_excel():
     url = "https://allsvenskan.se/data-endpoint/statistics/standings/2026/total"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/json, text/plain, */*",
+        "Referer": "https://allsvenskan.se/",
+        "Origin": "https://allsvenskan.se"
+    }
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
